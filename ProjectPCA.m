@@ -46,8 +46,8 @@ S = cov(DataAdjusted);
 
 eigvalues = diag(eigvalues); %Unravels the diagonal to a vector list
 
-eigvalues = eigvalues(rindices);
-eigvectors = eigvectors(:, rindices);
+%eigvalues = eigvalues(rindices);
+%eigvectors = eigvectors(:, rindices);
 
 %% Step 4 : Deriving the new data set
 
