@@ -73,13 +73,13 @@ Data(~PCAindices,:) = [];
 
 if sum(strcmp(varargin(:), 'Plot'))==1;
     
-    figure()
+    %figure()
     %vbls = {'X1', 'X2', 'X3'};
     %subplot(2,2,1)
-    biplot(coeff(:,1:2),'scores',components(:,1:2),'varlabels', PCAnames);
-    title(['First two principal components of the train data set, dataset reduced to ', num2str(2*N) ,' genes '])
-    xlabel('1st Principal Component')
-    ylabel('2nd Principal Component')
+    %biplot(coeff(:,1:2),'scores',components(:,1:2),'varlabels', PCAnames);
+    %title(['First two principal components of the train data set, dataset reduced to ', num2str(2*N) ,' genes '])
+    %xlabel('1st Principal Component')
+    %ylabel('2nd Principal Component')
     %2D
     
     %biplot(coeff(:,1:3),'scores',components(:,1:3),'varlabels', PCAnames);
