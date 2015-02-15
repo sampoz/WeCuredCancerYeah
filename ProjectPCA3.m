@@ -85,11 +85,11 @@ if sum(strcmp(varargin(:), 'Plot'))==1;
     %biplot(coeff(:,1:3),'scores',components(:,1:3),'varlabels', PCAnames);
     %3D
     
-    figure()
-    pareto(explained)
-    title(['Percentage of variance of ', num2str(2*N), ' genes, explained by principal components'])
-    xlabel('Principal Component')
-    ylabel('Variance Explained (%)')
+    %figure()
+    %pareto(explained)
+    %title(['Percentage of variance of ', num2str(2*N), ' genes, explained by principal components'])
+    %xlabel('Principal Component')
+    %ylabel('Variance Explained (%)')
     
     %biplot(coeff(:,1:2),'Scores',components(:,1:2),'VarLabels', {'X1' 'X2' 'X3' 'X4'})
     
@@ -103,4 +103,4 @@ end
 
 %% Second iteration of PCA for the independant dataset
 
-[indcoeff, indcomponents] = IndependantPCA(independantData, PCAindices, PCAnames, 'Plot');
+[indcoeff, indcomponents] = IndependantPCA(independantData, PCAindices, PCAnames, N, 'Plot');
