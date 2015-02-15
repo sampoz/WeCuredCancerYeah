@@ -20,8 +20,6 @@ else
     txtData = varargin{2};
 end
 
-numcomponents = size(Data,1)-1; % -1 from index row.
-
 if nargin > 2;
     for i=1:nargin;
         if isnumeric(varargin{i})==1;
@@ -36,13 +34,23 @@ end
 x=2:2:size(Data,2);
 Data(:,x) = []; 
 %Removes all nonnumeric data from the data
-Data(isnan(Data))=[]; %is buggy, results in one vector.
+%Data(isnan(Data))=[]; %is buggy, results in one vector.
 Data(1,:) = []; %Index row in excel data
 
-Data = transpose(Data); %Fixes the dimensions
+%Data = transpose(Data); %Fixes the dimensions
 
+%% Test with the PCA function
+
+[coeff, score, latent] = princomp(Data);
+
+explains = cumsum(latent)./sum(latent);
+
+%%
 numrows = size(Data,1);
 numcolumns = size(Data,2);
+
+%numcomponents = size(Data,1)-1; % -1 from index row.
+numcomponents = size(Data,2);
 
 x=1:2;
 txtData = txtData(:,x); %Names for the variables
@@ -92,5 +100,15 @@ Components = transpose(eigvectors)*transpose(DataAdjusted);
 
 %Components = [Components, names];
 
+%% Step 5 : Plotting
+
+if sum(strcmp(varargin(:), 'Plot'))==1;
+
+    %biplot(Components(:,1:2),'Scores',score(:,1:2),'VarLabels', {'X1' 'X2' 'X3' 'X4'})
+    %figure(); pareto(explained);
+    %figure(); boxplot(Data,'orientation', 'horizontal', 'labels', names);
+    
 end
+
+
 
